@@ -1,0 +1,68 @@
+src/
+├── controllers/
+│   ├── breeds.controller.ts       # Controlador para razas de gatos
+│   ├── image.controller.ts     # Controlador para imágenes
+│   └── user.controller.ts      # Controlador para usuarios
+├── services/
+│   ├── breeds.service.ts          # Servicio para la lógica de negocio de gatos
+│   ├── image.service.ts        # Servicio para la lógica de negocio de imágenes
+│   └── user.service.ts         # Servicio para la lógica de negocio de usuarios
+├── models/
+│   ├── breeds.model.ts            # Modelo de datos para razas de gatos
+│   ├── image.model.ts          # Modelo de datos para imágenes
+│   └── user.model.ts           # Modelo de datos para usuarios
+├── repositories/
+│   ├── breeds.repository.ts       # Repositorio para operaciones con razas de gatos
+│   ├── image.repository.ts     # Repositorio para operaciones con imágenes
+│   └── user.repository.ts      # Repositorio para operaciones con usuarios (MongoDB)
+├── interfaces/
+│   ├── IBreedsRepository.ts       # Interface para el repositorio de gatos
+│   ├── IImageRepository.ts     # Interface para el repositorio de imágenes
+│   └── IUserRepository.ts      # Interface para el repositorio de usuarios
+├── use-cases/
+│   ├── breeds/
+│   │   ├── get-all-breeds.usecase.ts    # Caso de uso para obtener todas las razas
+│   │   ├── get-breed-by-id.usecase.ts   # Caso de uso para obtener raza por ID
+│   │   └── search-breeds.usecase.ts     # Caso de uso para buscar razas
+│   ├── image/
+│   │   └── get-images-by-breed.usecase.ts # Caso de uso para obtener imágenes por raza
+│   └── user/
+│       ├── login.usecase.ts             # Caso de uso para login de usuarios
+│       └── register.usecase.ts          # Caso de uso para registro de usuarios
+├── config/
+│   ├── database.config.ts      # Configuración de MongoDB
+│   └── api.config.ts           # Configuración para TheCatAPI (API Key, base URL, etc.)
+├── utils/
+│   └── helpers.ts              # Funciones de ayuda comunes
+├── middlewares/
+│   └── auth.middleware.ts      # Middleware de autenticación (opcional)
+├── routes/
+│   ├── breeds.routes.ts           # Rutas para razas de gatos
+│   ├── image.routes.ts         # Rutas para imágenes
+│   └── user.routes.ts          # Rutas para usuarios
+├── tests/
+│   ├── controllers/
+│   │   ├── breeds.controller.spec.ts       # Pruebas unitarias para breeds.controller
+│   │   ├── image.controller.spec.ts     # Pruebas unitarias para image.controller
+│   │   └── user.controller.spec.ts      # Pruebas unitarias para user.controller
+│   ├── services/
+│   │   ├── breeds.service.spec.ts          # Pruebas unitarias para breeds.service
+│   │   ├── image.service.spec.ts        # Pruebas unitarias para image.service
+│   │   └── user.service.spec.ts         # Pruebas unitarias para user.service
+│   ├── repositories/
+│   │   ├── breeds.repository.spec.ts       # Pruebas unitarias para breeds.repository
+│   │   ├── image.repository.spec.ts     # Pruebas unitarias para image.repository
+│   │   └── user.repository.spec.ts      # Pruebas unitarias para user.repository
+│   └── use-cases/
+│       ├── breeds/
+│       │   ├── get-all-breeds.usecase.spec.ts   # Pruebas unitarias para get-all-breeds.usecase
+│       │   ├── get-breed-by-id.usecase.spec.ts  # Pruebas unitarias para get-breed-by-id.usecase
+│       │   └── search-breeds.usecase.spec.ts    # Pruebas unitarias para search-breeds.usecase
+│       ├── image/
+│       │   └── get-images-by-breed.usecase.spec.ts # Pruebas unitarias para get-images-by-breed.usecase
+│       └── user/
+│           ├── login.usecase.spec.ts            # Pruebas unitarias para login.usecase
+│           └── register.usecase.spec.ts         # Pruebas unitarias para register.usecase
+├── app.ts                       # Punto de entrada de la aplicación
+├── server.ts                    # Archivo principal que arranca el servidor
+└── tsconfig.json                # Configuración de TypeScript
