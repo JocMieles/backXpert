@@ -11,7 +11,6 @@ export class BreedsRepository implements IBreedsRepository {
 
     public async getAllBreeds(): Promise<Breed[]> {
         const response = await axios.get(`${this.apiBaseUrl}/breeds`, {
-            headers: { 'x-api-key': this.apiKey }
         });
         return response.data.map((data: any) => new Breed(
             data.id,
@@ -25,7 +24,6 @@ export class BreedsRepository implements IBreedsRepository {
 
     public async getBreedById(breed_id: string): Promise<Breed> {
         const response = await axios.get(`${this.apiBaseUrl}/breeds/${breed_id}`, {
-            headers: { 'x-api-key': this.apiKey }
         });
         const data = response.data;
         return new Breed(
@@ -41,7 +39,6 @@ export class BreedsRepository implements IBreedsRepository {
     public async searchBreeds(query: object): Promise<Breed[]> {
         const queryString = new URLSearchParams(query as any).toString();
         const response = await axios.get(`${this.apiBaseUrl}/breeds/search?${queryString}`, {
-            headers: { 'x-api-key': this.apiKey }
         });
         return response.data.map((data: any) => new Breed(
             data.id,

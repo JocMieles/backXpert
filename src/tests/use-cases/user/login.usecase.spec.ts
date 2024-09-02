@@ -44,7 +44,12 @@ describe('LoginUserUseCase', () => {
             jwtSecret,
             { expiresIn: '1h' }
         );
-        expect(result).toBe(token);
+        expect(result).toStrictEqual({
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDFkNGJkMTY1ZmE3ZmFlY2FlYzg0NSIsImVtYWlsIjoiam9zZW1pZWxlc0BlamVtcGxvLmNvbSIsImlhdCI6MTcyNTAzNjAwNSwiZXhwIjoxNzI1MDM5NjA1fQ.6BS5gn1R-JC35lMVY4O7HBk4kfOy9kItxuqh59ezYZ4',
+        user: {
+            name: 'Test User',
+            email: 'josemieles@ejemplo.com',
+        }});
     });
 
     it('debería retornar null si las credenciales son incorrectas', async () => {

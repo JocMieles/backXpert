@@ -43,7 +43,7 @@ describe('BreedsRepository', () => {
             const result = await breedsRepository.getAllBreeds();
 
             expect(mockedAxios.get).toHaveBeenCalledWith(`${process.env.API_BASE_URL}/breeds`, {
-                headers: { 'x-api-key': process.env.API_KEY },
+
             });
             expect(result).toEqual(breedsData.map(breed => new Breed(
                 breed.id,
@@ -78,7 +78,6 @@ describe('BreedsRepository', () => {
             const result = await breedsRepository.getBreedById('1');
 
             expect(mockedAxios.get).toHaveBeenCalledWith(`${process.env.API_BASE_URL}/breeds/1`, {
-                headers: { 'x-api-key': process.env.API_KEY },
             });
             expect(result).toEqual(new Breed(
                 breedData.id,
@@ -118,7 +117,6 @@ describe('BreedsRepository', () => {
             const queryString = new URLSearchParams(query as any).toString();
 
             expect(mockedAxios.get).toHaveBeenCalledWith(`${process.env.API_BASE_URL}/breeds/search?${queryString}`, {
-                headers: { 'x-api-key': process.env.API_KEY },
             });
             expect(result).toEqual(breedsData.map(breed => new Breed(
                 breed.id,

@@ -40,7 +40,7 @@ export class UserController {
         try {
             const token = await this.userService.login(email, password);
             if (token) {
-                res.status(200).json({ token });
+                res.status(200).json({...token });
             } else {
                 res.status(401).json({ message: 'Credenciales incorrectas' });
             }

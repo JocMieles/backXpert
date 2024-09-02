@@ -23,6 +23,5 @@ export const authenticateJWT = async (req: Request, res: Response, next: NextFun
             }
         }
     }
-    
     res.status(403).json({ message: 'Acceso denegado' });
 };

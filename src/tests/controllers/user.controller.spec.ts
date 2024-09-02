@@ -158,12 +158,12 @@ describe('UserController', () => {
         };
     
         const mockToken = 'valid-jwt-token';
-        userService.login = jest.fn().mockResolvedValue(mockToken);
+        userService.login = jest.fn().mockResolvedValue({token: 'valid-jwt-token', user: { name: 'John Doe', email: 'johdddn@example.com'}});
     
         await userController.login(req as any, res as any);
     
         expect(res.status).toHaveBeenCalledWith(200);  // Asegurarse de que se llama con 200
-        expect(res.json).toHaveBeenCalledWith({ token: mockToken });  // Verificar que el token se pasa correctamente
+        expect(res.json).toHaveBeenCalledWith({ token: 'valid-jwt-token',user: { name: 'John Doe', email: 'johdddn@example.com'} });  // Verificar que el token se pasa correctamente
     });
     
     

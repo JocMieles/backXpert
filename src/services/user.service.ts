@@ -24,7 +24,8 @@ export class UserService {
     }
 
     public async login(email: string, password: string) {
-        return this.loginUserUseCase.execute(email, password);
+        const user = await this.loginUserUseCase.execute(email, password);
+        return user;
     }
     
     public async verifyToken(token: string): Promise<any> {

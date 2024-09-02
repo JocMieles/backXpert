@@ -44,7 +44,6 @@ describe('ImageRepository', () => {
         expect(mockedAxios.get).toHaveBeenCalledWith(
             `${process.env.API_BASE_URL}/images/search`,
             {
-                headers: { 'x-api-key': process.env.API_KEY },
                 params: { breed_id: breedId, limit: 100 },
             }
         );

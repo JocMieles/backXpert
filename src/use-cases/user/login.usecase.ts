@@ -9,13 +9,13 @@ export class LoginUserUseCase {
         this.jwtSecret = jwtSecret;
     }
 
-    public async execute(email: string, password: string): Promise<string | null> {
+    public async execute(email: string, password: string): Promise<object | null> {
         const user = await this.userRepository.findByEmail(email);
         if (user && await bcrypt.compare(password, user.password)) {
             const token = jwt.sign({ id: user._id, email: user.email }, this.jwtSecret, {
                 expiresIn: '1h',
             });
-            return token;
+            return {token:token, user:{email: user.email, name: user.name}};
         }
         return null;
     }

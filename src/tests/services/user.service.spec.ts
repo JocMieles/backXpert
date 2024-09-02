@@ -55,7 +55,7 @@ describe('UserService', () => {
         expect(userRepository.findByEmail).toHaveBeenCalledWith(user.email);
         expect(bcrypt.compare).toHaveBeenCalledWith('password123', user.password);
         expect(jwt.sign).toHaveBeenCalledWith({ id: user._id, email: user.email }, jwtSecret, { expiresIn: '1h' });
-        expect(result).toBe('jwt-token');
+        expect(result).toStrictEqual({ token: 'jwt-token', user: { name: 'Joddhn Doe', email: 'johdddn@example.com' }});
     });
 
     it('should verify a valid token', async () => {
