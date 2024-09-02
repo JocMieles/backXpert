@@ -2,7 +2,7 @@
   "name": "backxpert",
   "version": "1.0.0",
   "description": "backend for Xpert",
-  "main": "index.js",
+  "main": "/src/server.ts",
   "scripts": {
     "start": "nodemon",
     "test": "jest"
